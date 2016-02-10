@@ -31,5 +31,13 @@
   "Role": {
     "dataSource": "db",
     "public": false
+  },
+  "SandboxUser": {
+    "dataSource": "postgres",
+    "public": true
+  },
+  "SandboxUserFollowers": {
+    "dataSource": "postgres",
+    "public": false
   }
 }

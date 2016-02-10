@@ -1,0 +1,28 @@
+{
+  "name": "SandboxUser",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "following": {
+      "type": "hasMany",
+      "model": "SandboxUser",
+      "foreignKey": "followSrcId",
+      "through": "SandboxUserFollowers",
+      "keyThrough": "followDestId"
+    },
+    "followers": {
+      "type": "hasMany",
+      "model": "SandboxUser",
+      "foreignKey": "followDestId",
+      "through": "SandboxUserFollowers",
+      "keyThrough": "followSrcId"
+    }
+	},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,24 @@
+{
+  "name": "SandboxUserFollowers",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "follow_src": {
+      "type": "belongsTo",
+      "model": "SandboxUser",
+      "foreignKey": "followSrcId"
+    },
+    "follow_dest": {
+      "type": "belongsTo",
+      "model": "SandboxUser",
+      "foreignKey": "followDestId"
+    }
+	},
+  "acls": [],
+  "methods": {}
+}
