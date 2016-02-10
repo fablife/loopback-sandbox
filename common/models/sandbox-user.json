@@ -22,7 +22,14 @@
       "through": "SandboxUserFollowers",
       "keyThrough": "followSrcId"
     }
-	},
-  "acls": [],
+  },
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    }
+  ],
   "methods": {}
 }

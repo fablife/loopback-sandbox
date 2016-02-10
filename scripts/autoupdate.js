@@ -3,7 +3,7 @@ var app = require(path.resolve(__dirname, '../server/server'));
 
 require('events').EventEmitter.prototype._maxListeners = 40;
 
-var dataSource = app.dataSources.db;
+var dataSource = app.dataSources.postgres;
 
 console.log('dataSource', dataSource.settings);
 

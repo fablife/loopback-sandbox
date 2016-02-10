@@ -4,7 +4,12 @@
     "connector": "memory"
   },
   "postgres": {
+    "host": "localhost",
+    "database": "lbsandbox",
+    "username": "lbsandbox",
+    "password": "lbsandbox",
     "name": "postgres",
+    "debug": true,
     "connector": "postgresql"
   }
 }

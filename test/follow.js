@@ -34,16 +34,16 @@ before(function(done) {
 		api = supertest('http://localhost:3000');
 
 		function delay() {
-			server.models.AppUser.create(users, function(err, srv_users) {
+			server.models.SandboxUser.create(users, function(err, srv_users) {
 				if (err) {
-					logger.error(err);
+					console.log(err);
 					done();
 				}
 				createdUsers = srv_users;
 				done();
 			});
 		}
-		setTimeout(delay, 3000);
+		setTimeout(delay, 500);
 });
 
 
@@ -60,21 +60,21 @@ describe('follow each other', function() {
 				follow_dest = createdUsers[Math.floor(Math.random()*createdUsers.length)];
 			}
 
-			logger.debug("ID " + follow_src.id + " follows ID " + follow_dest.id);
-			api.put('/api/v1/SandboxUsers/' + follow_src.id + '/following/rel/' + follow_dest.id)
+			console.log("ID " + follow_src.id + " follows ID " + follow_dest.id);
+			api.put('/api/SandboxUsers/' + follow_src.id + '/following/rel/' + follow_dest.id)
 			.send()
 			.end(function(err, res) {
 				if (err) {
-					logger.error(err);
+					console.log(err);
 					done(err);
 				}
 				counter += 1;
-				logger.debug(counter);
+				console.log(counter);
 				if (counter == (FOLLOWING_FACTOR*TEST_USER_COUNT)) {
 					done();
 				}
 			});
-			setTimeout(function() {logger.debug("waiting....")}, 2000);
+			setTimeout(function() {console.log("waiting....")}, 2000);
 		}
 	});
 
